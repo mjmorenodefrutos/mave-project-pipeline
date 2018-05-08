@@ -12,8 +12,8 @@ public class Greeter {
 
   }
 
-
-  final public String greet(final String someone) {
+/** Comentario para JavaDoc */
+  public final String greet(final String someone) {
     return String.format("Hello, %s!", someone);
   }
 }
