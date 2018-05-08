@@ -14,6 +14,7 @@ public class Greeter {
 
 /** 
 * @param someone cadena
+* @return cadena
 */
   public final String greet(final String someone) {
     return String.format("Hello, %s!", someone);
