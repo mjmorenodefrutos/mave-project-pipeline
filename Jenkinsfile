@@ -10,7 +10,7 @@ pipeline {
 			post{
 				success {
 				echo 'guardando .....'
-				archiveArtifacts: '**/target/*.war'
+				archiveArtifacts artifacts: '**/target/*.war'
 				}
 			}
         }
