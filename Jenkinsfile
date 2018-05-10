@@ -2,10 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Inicial') {
+        stage('Build') {
             steps {
-                echo 'Estoy en la fase Inicial'
+                bat 'mvn clean package'
+				
             }
+			post{
+				success {
+				echo 'guardando .....'
+				archiveArtifacts: '**/target/*.war'
+				}
+			}
         }
         stage('Etapa 2') {
             steps {
