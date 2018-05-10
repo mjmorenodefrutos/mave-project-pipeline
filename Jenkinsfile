@@ -14,9 +14,9 @@ pipeline {
 				}
 			}
         }
-        stage('Etapa 2') {
+        stage('Paso a ore') {
             steps {
-                echo 'Estoy en etapa 2'
+                build job: 'realizar-deploy'
             }
         }
         stage('Etapa 3') {
