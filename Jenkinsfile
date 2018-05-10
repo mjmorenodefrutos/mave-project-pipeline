@@ -14,7 +14,7 @@ pipeline {
 				}
 			}
         }
-        stage('Paso a ore') {
+        stage('Paso a pre') {
             steps {
                 build job: 'realizar-deploy'
             }
