@@ -24,7 +24,7 @@ pipeline {
                 timeout(time:5, unit:'DAYS'){
 					input message: 'Aprobar el '
 				}
-				build job: realizar-deploy-produccion
+				build job: 'realizar-deploy-produccion'
             }
 			post{
 				success {
