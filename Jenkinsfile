@@ -19,10 +19,21 @@ pipeline {
                 build job: 'realizar-deploy'
             }
         }
-        stage('Etapa 3') {
+        stage('Paso a pro') {
             steps {
-                echo 'Hola Mundo'
+                timeout(time:5, unit:'DAYS'){
+					input message: 'Aprobar el '
+				}
+				build job: realizar-deploy-produccion
             }
+			post{
+				success {
+					echo 'Despliegue correcto'
+				}
+				failure {
+					echo 'Ha fallado despliegue a PRO'
+				}
+			}
         }
     }
 }
