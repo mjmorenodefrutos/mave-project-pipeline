@@ -1,7 +1,13 @@
 pipeline {
     agent any
+	
+	triggers {
+		pollSCM('* * * * *')
+	}
 
     stages {
+		git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'
+
         stage('Build') {
             steps {
                 bat 'mvn clean package'
@@ -18,6 +24,9 @@ pipeline {
             steps {
                 build job: 'realizar-deploy'
             }
+			steps {
+				bat 'mvn checkstyle:checkstyle'
+			}
         }
         stage('Paso a pro') {
             steps {
