@@ -4,7 +4,7 @@ pipeline {
 	triggers {
 		pollSCM('* * * * *')
 	}
-	git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'
+	
 
     stages {
 		/*git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'*/
