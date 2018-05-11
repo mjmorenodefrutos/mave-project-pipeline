@@ -7,7 +7,7 @@ pipeline {
 	
 
     stages {
-		git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'
+		/*git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'*/
 
         stage('Build') {
             steps {
@@ -26,7 +26,10 @@ pipeline {
                 build job: 'realizar-deploy'
             }
 			post {
-				bat 'mvn checkstyle:checkstyle'
+				always {
+					bat 'mvn checkstyle:checkstyle'
+				}
+
 				success {
 					echo 'checkstyle correcto'
 				}
