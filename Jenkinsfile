@@ -6,7 +6,7 @@ pipeline {
 	}
 
     stages {
-		git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'
+		/*git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'*/
 
         stage('Build') {
             steps {
