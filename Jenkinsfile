@@ -4,6 +4,7 @@ pipeline {
 	triggers {
 		pollSCM('* * * * *')
 	}
+	git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'
 
     stages {
 		/*git url: 'git://github.com/mjmorenodefrutos/mave-project-pipeline', branch: 'master'*/
@@ -23,10 +24,8 @@ pipeline {
         stage('Paso a pre') {
             steps {
                 build job: 'realizar-deploy'
-            }
-			steps {
 				bat 'mvn checkstyle:checkstyle'
-			}
+            }
         }
         stage('Paso a pro') {
             steps {
