@@ -28,19 +28,6 @@ pipeline {
 			post {
 				always {
 					bat 'mvn checkstyle:checkstyle'
-					success {
-						echo 'checkstyle correcto'
-					}
-					failure {
-						echo 'Ha fallado checkstyle'
-					}
-				}
-
-				success {
-					echo 'checkstyle correcto'
-				}
-				failure {
-					echo 'Ha fallado checkstyle'
 				}
 			}
         }
