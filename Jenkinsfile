@@ -24,8 +24,16 @@ pipeline {
         stage('Paso a pre') {
             steps {
                 build job: 'realizar-deploy'
-				bat 'mvn checkstyle:checkstyle'
             }
+			post {
+				bat 'mvn checkstyle:checkstyle'
+				success {
+					echo 'checkstyle correcto'
+				}
+				failure {
+					echo 'Ha fallado checkstyle'
+				}
+			}
         }
         stage('Paso a pro') {
             steps {
